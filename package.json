@@ -1,0 +1,11 @@
+{
+  "name": "006-rockpaperscissors",
+  "version": "1.0.0",
+  "description": "Simple rock paper scissors game",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dariusz Okonski",
+  "license": "ISC"
+}
