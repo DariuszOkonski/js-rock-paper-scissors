@@ -12,4 +12,25 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
+.content .playground {
+  background-color: #fff;
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  width: 90%;
+  height: 75vh;
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .content .playground {
+    height: 62vh;
+  }
+}
+
+@media (min-width: 1025px) {
+  .content .playground {
+    height: 85vh;
+  }
+}
 /*# sourceMappingURL=game.css.map */
