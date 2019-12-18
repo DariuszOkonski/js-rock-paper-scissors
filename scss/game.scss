@@ -14,6 +14,21 @@
     border-radius: 0.5rem;
     width: 90%;
     height: 75vh;
+
+    .hands {
+      background-color: green;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &__player {
+        background-color: red;
+      }
+
+      &__cpu {
+        background-color: darkred;
+      }
+    }
   }
 
   @media(max-width: 1024px) and (orientation: landscape) {
