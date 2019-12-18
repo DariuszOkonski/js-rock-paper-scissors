@@ -19,10 +19,21 @@
   border: 1px solid black;
   border-radius: 0.5rem;
   width: 90%;
-  height: 75vh;
+  min-height: 75vh;
+}
+
+.content .playground .error {
+  font-size: 1rem;
+}
+
+@media (min-width: 1025px) {
+  .content .playground .error {
+    font-size: 1.4rem;
+  }
 }
 
 .content .playground .hands {
+  background-color: #ccc;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,6 +74,7 @@
 
 .content .playground .hands__player .hand img {
   width: 100%;
+  margin: 0.2rem;
 }
 
 .content .playground .hands__cpu {
@@ -88,13 +100,13 @@
 
 @media (max-width: 1024px) and (orientation: landscape) {
   .content .playground {
-    height: 62vh;
+    min-height: 62vh;
   }
 }
 
 @media (min-width: 1025px) {
   .content .playground {
-    height: 85vh;
+    min-height: 85vh;
   }
 }
 /*# sourceMappingURL=game.css.map */
