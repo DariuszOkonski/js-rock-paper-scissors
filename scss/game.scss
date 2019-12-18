@@ -2,6 +2,12 @@
   width: 100%;
   min-height: 100vh;
   background-color: #ddd;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+
+  @media(min-width: 1025px) {
+    margin: 0;
+  }
 
   display: flex;
   justify-content: center;
@@ -77,6 +83,23 @@
         }
       }
     }
+
+    .cardsContainer {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      @media(orientation: landscape) {
+        flex-direction: row;
+      }
+
+      span {
+        font-weight: bold;
+        color: red;
+      }
+    }
+
   }
 
   @media(max-width: 1024px) and (orientation: landscape) {
