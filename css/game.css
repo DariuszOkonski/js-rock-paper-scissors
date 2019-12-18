@@ -2,6 +2,8 @@
   width: 100%;
   min-height: 100vh;
   background-color: #ddd;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,6 +13,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (min-width: 1025px) {
+  .content {
+    margin: 0;
+  }
 }
 
 .content .playground {
@@ -96,6 +104,33 @@
   .content .playground .hands__player .hand, .content .playground .hands__cpu .hand {
     width: 150px;
   }
+}
+
+.content .playground .cardsContainer {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media (orientation: landscape) {
+  .content .playground .cardsContainer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.content .playground .cardsContainer span {
+  font-weight: bold;
+  color: red;
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
