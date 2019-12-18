@@ -23,7 +23,6 @@
 }
 
 .content .playground .hands {
-  background-color: green;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -36,12 +35,55 @@
           align-items: center;
 }
 
+@media (max-width: 1024px) and (orientation: landscape) {
+  .content .playground .hands {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
 .content .playground .hands__player {
-  background-color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid black;
+  border-radius: .2rem;
+  margin: 0.2rem;
+}
+
+.content .playground .hands__player .hand {
+  width: 50px;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.content .playground .hands__player .hand img {
+  width: 100%;
 }
 
 .content .playground .hands__cpu {
-  background-color: darkred;
+  border: 1px solid black;
+  border-radius: .2rem;
+  margin: 0.2rem;
+}
+
+.content .playground .hands__cpu .hand {
+  width: 50px;
+  margin: 0.5rem;
+}
+
+.content .playground .hands__cpu .hand img {
+  width: 100%;
+}
+
+@media (min-width: 1025px) {
+  .content .playground .hands__player .hand, .content .playground .hands__cpu .hand {
+    width: 150px;
+  }
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
