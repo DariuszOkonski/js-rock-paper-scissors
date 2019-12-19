@@ -2,8 +2,7 @@
   width: 100%;
   min-height: 100vh;
   background-color: #ddd;
-  margin-top: 4rem;
-  margin-bottom: 3rem;
+  margin: 4rem auto 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,7 +16,7 @@
 
 @media (min-width: 1025px) {
   .content {
-    margin: 0;
+    margin: 0 auto 0;
   }
 }
 
