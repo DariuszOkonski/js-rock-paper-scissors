@@ -1,0 +1,1 @@
+export const handsArray = ['rock', 'paper', 'scissors'];
