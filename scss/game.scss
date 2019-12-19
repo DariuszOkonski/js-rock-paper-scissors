@@ -21,11 +21,16 @@
     min-height: 75vh;
 
     .error {
+      visibility: hidden;
       font-size: 1rem;
 
       @media(min-width: 1025px) {
         font-size: 1.4rem;
       }
+    }
+
+    .active {
+      visibility: visible;
     }
 
     .hands {
