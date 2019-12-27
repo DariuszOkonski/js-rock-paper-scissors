@@ -18,6 +18,18 @@ class Game {
     this.domElements = domAnchors;
   }
 
+  restart = () => {
+    this.results.resetNumberOfGames();
+    this.results.resetHumanWins();
+    this.results.resetCpuWins();
+    this.results.resetDraws();
+
+    this.domElements.numberOfGames.textContent = '';
+    this.domElements.wins.textContent = '';
+    this.domElements.losses.textContent = '';
+    this.domElements.draws.textContent = '';
+  }
+
   letsPlay = () => {
     this.clearError();
     if (this.human.getHand() === '') {
@@ -178,6 +190,7 @@ class Game {
 
   playGame() {
     this.domElements.btnPlay.addEventListener('click', this.letsPlay);
+    this.domElements.btnReset.addEventListener('click', this.restart);
     this.domElements.handRock.addEventListener('click', this.chooseRock);
     this.domElements.handPaper.addEventListener('click', this.choosePaper);
     this.domElements.handScissors.addEventListener('click', this.chooseScissors);
