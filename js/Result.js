@@ -1,25 +1,11 @@
 class Result {
   constructor() {
-    let humanChoice = '';
-    let cpuChoice = '';
     let gameWinner = '';
     let numberOfGames = 0;
     let humanWins = 0;
     let cpuWins = 0;
     let draws = 0;
 
-    this.getHumanChoice = () => {
-      return humanChoice;
-    }
-    this.setHumanChoice = (choice) => {
-      humanChoice = choice;
-    }
-    this.getCpuChoice = () => {
-      return cpuChoice;
-    }
-    this.setCpuChoice = (choice) => {
-      cpuChoice = choice;
-    }
     this.getGameWinner = () => {
       return gameWinner;
     }
