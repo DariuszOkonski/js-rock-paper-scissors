@@ -25,7 +25,35 @@ class Game {
       return;
     }
 
-    console.log('Now it is computer choice');
+
+    this.cpuChoice();
+
+  }
+
+  cpuChoice = () => {
+    this.domElements.handCpu.style.visibility = 'visible';
+    this.domElements.cpuPicture.setAttribute('src', '../img/loading.gif');
+
+    this.buttonsOff();
+    setTimeout(() => {
+      this.cpu.setHand(this.cpu.randomHand(handsArray));
+      this.setCpuChoosenPicture();
+      this.displayCpuChoice();
+      console.log('Cpu chand: ' + this.cpu.getHand());
+    }, 1000);
+
+  }
+
+  setCpuChoosenPicture = () => {
+    if (this.cpu.getHand() === 'rock') {
+      this.domElements.cpuPicture.setAttribute('src', '../img/rock.jpg');
+    } else if (this.cpu.getHand() === 'paper') {
+      this.domElements.cpuPicture.setAttribute('src', '../img/paper.jpg');
+    } else if (this.cpu.getHand() === 'scissors') {
+      this.domElements.cpuPicture.setAttribute('src', '../img/scissors.jpg');
+    } else {
+      this.domElements.cpuPicture.setAttribute('src', '../img/loading.gif');
+    }
   }
 
   chooseRock = () => {
@@ -56,6 +84,10 @@ class Game {
     this.domElements.yourChoice.textContent = this.human.getHand();
   }
 
+  displayCpuChoice = () => {
+    this.domElements.cpuChoice.textContent = this.cpu.getHand();
+  }
+
   resetBoxShadow = () => {
     this.domElements.handRock.style.boxShadow = 'none';
     this.domElements.handPaper.style.boxShadow = 'none';
@@ -64,6 +96,16 @@ class Game {
 
   clearError = () => {
     this.domElements.dangerInfo.classList.add('error');
+  }
+
+  buttonsOff = () => {
+    this.domElements.btnPlay.style.visibility = 'hidden';
+    this.domElements.btnReset.style.visibility = 'hidden';
+  }
+
+  buttonsOn = () => {
+    this.domElements.btnPlay.style.visibility = 'visible';
+    this.domElements.btnReset.style.visibility = 'visible';
   }
 
   playGame() {
