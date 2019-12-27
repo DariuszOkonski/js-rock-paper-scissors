@@ -4,6 +4,7 @@ const domAnchors = {
   handPaper: document.querySelector('.handPaper-js'),
   handScissors: document.querySelector('.handScissors-js'),
   handCpu: document.querySelector('.handCpu-js'),
+  cpuPicture: document.querySelector('.cpuPicture-js'),
   btnPlay: document.querySelector('.btnLetsPlay-js'),
   btnReset: document.querySelector('.btnReset-js'),
   yourChoice: document.querySelector('.yourChoice-js'),
