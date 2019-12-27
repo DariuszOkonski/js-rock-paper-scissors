@@ -14,6 +14,7 @@ class Game {
     }
     this.human = new Hand();
     this.cpu = new Hand();
+    this.results = new Result();
     this.domElements = domAnchors;
   }
 
@@ -31,17 +32,84 @@ class Game {
   }
 
   cpuChoice = () => {
-    this.domElements.handCpu.style.visibility = 'visible';
-    this.domElements.cpuPicture.setAttribute('src', '../img/loading.gif');
 
+    this.cpuPictureOn();
     this.buttonsOff();
     setTimeout(() => {
       this.cpu.setHand(this.cpu.randomHand(handsArray));
       this.setCpuChoosenPicture();
       this.displayCpuChoice();
       console.log('Cpu chand: ' + this.cpu.getHand());
+
+      this.whoWonCurrentSet();
+      this.displayScores();
+
+      setTimeout(() => {
+        this.resetCurrentSet();
+      }, 5000);
+
     }, 1000);
 
+  }
+
+  cpuPictureOn = () => {
+    this.domElements.handCpu.style.visibility = 'visible';
+    this.domElements.cpuPicture.setAttribute('src', '../img/loading.gif');
+  }
+
+  cpuPictureOff = () => {
+    this.domElements.handCpu.style.visibility = 'hidden';
+    this.domElements.cpuPicture.setAttribute('src', '../img/loading.gif');
+  }
+
+  resetCurrentSet = () => {
+    this.cpuPictureOff();
+    this.resetBoxShadow();
+    this.buttonsOn();
+    this.resetHands();
+  }
+
+  resetHands = () => {
+    this.human.setHand('');
+    this.cpu.setHand('');
+    this.results.setGameWinner('');
+
+    this.displayHumanChoice();
+    this.displayCpuChoice();
+    this.domElements.gameWinner.textContent = this.results.getGameWinner();
+  }
+
+  displayScores = () => {
+    this.domElements.gameWinner.textContent = this.results.getGameWinner();
+    this.domElements.numberOfGames.textContent = this.results.getNumberOfGames();
+    this.domElements.wins.textContent = this.results.getHumanWins();
+    this.domElements.losses.textContent = this.results.getCpuWins();
+    this.domElements.draws.textContent = this.results.getDraws();
+  }
+
+  whoWonCurrentSet = () => {
+    this.results.increaseNumberOfGames();
+
+    if ((this.human.getHand() === 'rock' && this.cpu.getHand() === 'rock') ||
+      (this.human.getHand() === 'paper' && this.cpu.getHand() === 'paper') ||
+      (this.human.getHand() === 'scissors' && this.cpu.getHand() === 'scissors')) {
+      this.results.increaseDraws();
+      this.results.setGameWinner('Draw');
+      this.domElements.gameWinner.style.color = 'gray';
+
+    } else if ((this.human.getHand() === 'rock' && this.cpu.getHand() === 'scissors') ||
+      (this.human.getHand() === 'paper' && this.cpu.getHand() === 'rock') ||
+      (this.human.getHand() === 'scissors' && this.cpu.getHand() === 'paper')) {
+      this.results.increaseHumanWins();
+      this.results.setGameWinner('You Won!!!');
+      this.domElements.gameWinner.style.color = 'green';
+    } else {
+      this.results.increaseCpuWins();
+      this.results.setGameWinner('You Lost!!!');
+      this.domElements.gameWinner.style.color = 'red';
+    }
+
+    console.log(this.results)
   }
 
   setCpuChoosenPicture = () => {
@@ -113,8 +181,6 @@ class Game {
     this.domElements.handRock.addEventListener('click', this.chooseRock);
     this.domElements.handPaper.addEventListener('click', this.choosePaper);
     this.domElements.handScissors.addEventListener('click', this.chooseScissors);
-
-    console.log('playGame');
   }
 }
 
