@@ -1,4 +1,5 @@
 const domAnchors = {
+  dangerInfo: document.querySelector('.error-js'),
   handRock: document.querySelector('.handRock-js'),
   handPaper: document.querySelector('.handPaper-js'),
   handScissors: document.querySelector('.handScissors-js'),
